@@ -1,0 +1,30 @@
+<h1 style="display:flex;justify-content:center;align-items:center;padding-top:30px"> Sign-Up</h1>
+
+<div style="display:flex;justify-content:center;align-items:center;">
+<%= form_with model: @user, url: signup_path do |form| %>
+<div class="mb-3">
+    <%=form.label :name%>
+<%=form.text_field :name, class:"form-control", placeholder: "alex" ,style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.label :email %>
+<%=form.text_field :email, class:"form-control", placeholder: "alex@gmail.com",style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.label :phno %>
+<%=form.text_field :phno, class:"form-control", placeholder: "123456789",style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.label :password %>
+<%=form.text_field :password, class:"form-control", placeholder: "password",style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.submit "Submit", class:"btn btn-primary",style:"width:300px" %>
+    </div>
+<% end %>
+</div>
+<!--
+the submit form doesnt really kniow what to do there fore when clicked submit,
+it refers to the form variable that was created later the form reffers to the 
+users model or the path tat is defined. and it calls the create.
+ -->

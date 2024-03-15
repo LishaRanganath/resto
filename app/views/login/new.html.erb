@@ -1,0 +1,17 @@
+<h1 style="display:flex;justify-content:center;align-items:center;padding-top:30px"> Log-In</h1>
+
+<div style="display:flex;justify-content:center;align-items:center;">
+<%= form_with model: @user, url: login_path do |form| %>
+<div>
+    <%=form.label :email %>
+<%=form.text_field :email, class:"form-control", placeholder: "alex@gmail.com",style:"width:300px"%>
+</div>
+<div>
+    <%=form.label :password %>
+<%=form.password_field :password, class:"form-control", placeholder: "password",style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.submit "Submit", class:"btn btn-primary",style:"width:300px" %>
+    </div>
+<% end %>
+</div>
