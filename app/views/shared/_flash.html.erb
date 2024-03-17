@@ -1,0 +1,14 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+      $("#notice, #alert").fadeOut("slow");
+    }, 3000); // Fade out messages after 3 seconds (adjust as needed)
+  });
+</script>
+
+<% if flash[:notice] %>
+<div id="notice"class="alert alert-info mt-4"><%= flash[:notice] %></div>
+<%end%>
+<% if flash[:alert] %>
+<div id="alert"class="alert alert-warning mt-4"><%=flash[:alert] %></div>
+<%end%>

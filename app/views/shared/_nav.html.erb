@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-  <%=link_to "Navbar",root_path,class:"navbar-brand" %>
+  <%=link_to "Resto",root_path,class:"navbar-brand" %>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,9 +14,13 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-             
         <li class="nav-item">
-        <%=link_to "logout", logout_path,class:"nav-link",method: :delete%>
+        <%=link_to order_item_path,class:"nav-link" do%>
+        <i class="	fa fa-cart-plus" style="font-size:24px"></i>
+        <%end%>
+        </li>         
+        <li class="nav-item">
+        <%=button_to "logout", logout_path,class:"nav-link",method: :delete%>
         </li>
        
         </ul>

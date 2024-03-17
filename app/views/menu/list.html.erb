@@ -1,5 +1,18 @@
+<style>
+.form-style
+{
+  display:inline;
+}
+</style>
+
 <div style="text-align: center;">
 <h1 class="heading">Menu List</h1>
+
+<%= form_tag(search_path,method: :get)do%>
+<%=text_field_tag :query,params[:query], placeholder: "search..",style:"width:300px;"%>
+<%=submit_tag "Search"%>
+<%end%>
+     
 <table class="table table-striped" >
   <thead>
     <tr>
@@ -9,11 +22,18 @@
     </tr>
   </thead>
   <tbody>
-  <% @menu.each do |item|%>
-    <tr>
-      <td><%= item.name%></td>
-      <td><%= item.cost%></td>
-      <td><button type="button"  class="btn btn-info">+</button></td>
+    <% @menu.each do |item|%>
+      <tr>
+        <td><%= item.name%></td>
+        <td><%= item.cost%></td>
+        <td> <%= form_with(model: OrderItem, url: order_item_path, method: :post,class:"form-style") do |form|%>
+         <%= form.hidden_field :menu_id, value: item.id %>
+        <%= form.submit "+" %>
+        <% end %>
+        <%= form_with( model: OrderItem,url: order_item_path, method: :put,class:"form-style") do |form|%>
+         <%= form.submit "-",class: "decrement" %>
+         <%end%>
+        </td>
     </tr>
     <%end%>
   </tbody>

@@ -8,7 +8,21 @@ Rails.application.routes.draw do
   get 'login', to:'login#new'
   post 'login', to:'login#create'
 
-  delete '/logout', to: 'login#destroy', as: :logout
+  delete '/logout', to: 'login#destroy'
+
+  get 'order_item', to: 'order_item#list'
+  post 'order_item', to: 'order_item#create'
+  put 'order_item', to: 'order_item#decrement'
+
+  post 'cart', to: 'cart#create'
+  put 'cart', to: 'cart#decrement'
+
+  get 'search', to: 'search#index'
+
+  post 'menu', to: 'order_item#create'
+  put 'menu', to: 'order_item#decrement'
+  #  resources :order_item, only: [:create]
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
