@@ -1,0 +1,23 @@
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;">
+<%= form_with  url: payment_path do |form| %>
+<div class="mb-3">
+    <%=form.label :full_name %>
+<%=form.text_field :full_name, class:"form-control", placeholder: "alex@gmail.com",style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.label :credit %>
+<%=form.text_field :credit, class:"form-control", placeholder: "XXXX XXXX XXXX XXXX",style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.label :expiry %>
+<%= form.text_field :expiry, class: "form-control", placeholder: "MM/YYYY", style: "width:300px", title: "Enter a valid expiration date in the format MM/YYYY" %>
+</div>
+<div class="mb-3">
+    <%=form.label :cvv %>
+<%=form.password_field :cvv, class:"form-control", placeholder: "CVV",style:"width:300px"%>
+</div>
+<div class="mb-3">
+    <%=form.submit "Submit", notice: "your order is placed",class:"btn btn-primary",style:"width:300px" %>
+    </div>
+<% end %>
+</div>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'login', to:'login#new'
   post 'login', to:'login#create'
 
-  delete '/logout', to: 'login#destroy'
+  delete 'logout', to: 'login#destroy'
 
   get 'order_item', to: 'order_item#list'
   post 'order_item', to: 'order_item#create'
@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   post 'menu', to: 'order_item#create'
   put 'menu', to: 'order_item#decrement'
+
+  # get 'payment', to: 'payment#index'
+  post 'payment', to: 'payment#index'
   #  resources :order_item, only: [:create]
 
 

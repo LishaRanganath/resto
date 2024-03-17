@@ -37,13 +37,14 @@ class OrderItemController < ApplicationController
     end
   end
   def list
-    @order_items=OrderItem.all
+    @order_items=current_user.order.last.order_item
+    @show_nar=true
   end
 
-  def destroy
-    @order_item.destroy
-    redirect_to menu_path, alert: "Item destroyed"
-  end
+  # def destroy
+  #   @order_item.destroy
+  #   redirect_to menu_path, alert: "Item destroyed"
+  # end
 
   private
 

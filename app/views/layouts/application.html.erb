@@ -20,6 +20,9 @@
    <% if @show_nav %>
    <%= render partial:"shared/nav"%> 
    <%end%>
+   <% if @show_nar %>
+   <%= render partial:"shared/nar"%> 
+   <%end%>
    <%= render partial:"shared/flash"%> 
     <%= yield %>
   </body>

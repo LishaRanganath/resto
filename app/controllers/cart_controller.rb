@@ -1,6 +1,5 @@
 class CartController < ApplicationController
   before_action :find_order
-  before_action :find_order_item , only: [ :create,:destroy]
 def create
   @order_item=@order.order_item.find_by(menu_id: order_item_params[:menu_id])
   if @order_item
@@ -34,6 +33,10 @@ def decrement
     redirect_to order_item_path, alert: "item deleted"
   end
 end
+def show
+    @sum_order=sum_of_item(current_user.id)
+
+end
 private
 
   def find_order
@@ -41,11 +44,24 @@ private
     @order ||= current_user.order.create
   end
 
-  def find_order_item
-
-  end
 
   def order_item_params
     params.require(:order_item).permit(:menu_id)
   end
+
+  def sum_of_item(user_id)
+    current_order = Order.find_by(user_id: user_id, status: "active")
+    if current_order && current_order.order_items.any?
+      current_order.order_items.sum { |item| menu_price(item.menu_id) * item.quantity }
+
+    else
+      0
+    end
+  end
+
+  def menu_price(menu_id)
+    menu_item = Menu.find_by(id: menu_id)
+    menu_item ? menu_item.price : 0
+  end
+
 end

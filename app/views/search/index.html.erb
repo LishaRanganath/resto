@@ -1,7 +1,14 @@
-<% @menu.each do |menu| %>
-<h1><%=menu.name%></h1>
-<%end%>
-
+<style>
+.form-style{
+    display:inline;
+}
+.heading{
+    display:flex;
+    justify-content:center;
+}
+</style>
+<h1 class="heading">Menu List</h1>
+<div style="text-align: center;">
 <table class="table table-striped" >
   <thead>
     <tr>
