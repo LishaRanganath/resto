@@ -1,7 +1,52 @@
-<%
-=begin%>
- <%= content_tag :div, style: "background-image: url('#{asset_path('background.jpg')}'); background-size: cover;" do %>
-  <!-- Your content here -->
-<% end %> 
-<%
-=end%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Website</title>
+  <style>
+    body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    h1{
+      position: absolute;
+      padding-left: 50%;
+      color: white;   
+      padding-top:60px;
+      text-align: center;
+    }
+    .cont {
+  
+  width: 100%;
+}
+
+.cont img {
+  width: 100%;
+  height: auto;
+}
+
+.text {
+  position: absolute;
+  top: 55%; 
+  left: 60%; 
+  text-align: center;
+  color: white; 
+  font-size: 24px; 
+  font-family: 'Times New Roman', serif;
+}
+  </style>
+</head>
+<body>
+ 
+  <div class="cont">
+   <h1>Welcome</h1>
+  <%= image_tag 'background.jpg', alt: 'My Logo', style:"width:100%; height: 80%;"%>
+  <div class="text">
+    <p>Welcome to our American breakfast haven, where every morning begins with a symphony of sizzling bacon, golden pancakes, and the aroma of freshly brewed coffee.</p>
+    <p>At our cozy website, we believe that breakfast is more than just a meal—it's a celebration of the new day, a time to gather with friends and family, and a chance to indulge in comforting flavors that nourish both body and soul.Our menu is a tribute to classic American breakfast fare with a modern twist.</p>
+    <p style="font-size: 30px;color:green;">Please Sign-up/Log-in to continue</p>
+  </div>
+  </div>
+</body>
+</html>
